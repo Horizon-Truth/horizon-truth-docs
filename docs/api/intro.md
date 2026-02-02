@@ -1,9 +1,9 @@
-# Backend Intro
+# API Intro
 
 **Horizon Truth API** is the backend engine for the Horizon Truth platform. It is a high-performance, secure, and scalable API built with **NestJS**, **TypeORM**, and **PostgreSQL**.
 
 ## Project Mission
-The backend aims to provide a reliable source of truth for public claims, leveraging community verification and automated engine analysis.
+The API aims to provide a reliable source of truth for public claims, leveraging community verification and automated engine analysis.
 
 ## Key Features
 - **Stateless Authentication**: JWT-based security with Passport.js.

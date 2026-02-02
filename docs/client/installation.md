@@ -1,4 +1,4 @@
-# Frontend Installation
+# Client Installation
 
 Follow these steps to set up the Horizon Truth Client on your local machine.
 

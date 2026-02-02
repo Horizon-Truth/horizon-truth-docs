@@ -1,4 +1,4 @@
-# Frontend Architecture
+# Client Architecture
 
 The Horizon Truth Client follows a modular component-based architecture designed for scalability and maintainability.
 

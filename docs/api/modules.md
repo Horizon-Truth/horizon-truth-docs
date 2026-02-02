@@ -1,4 +1,4 @@
-# Backend Modules
+# API Modules
 
 The Horizon Truth API is structured into several core modules, each responsible for a specific domain.
 

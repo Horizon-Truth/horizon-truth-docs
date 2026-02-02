@@ -1,11 +1,11 @@
 # Horizon Truth Documentation
 
-This repository contains the official documentation for the **Horizon Truth** project, covering both the Frontend and Backend components. The documentation site is built using [Docusaurus](https://docusaurus.io/).
+This repository contains the official documentation for the **Horizon Truth** project, covering both the Client and API components. The documentation site is built using [Docusaurus](https://docusaurus.io/).
 
 ## Repository Structure
 
-- `docs/frontend`: Documentation for the [Horizon Truth Client](https://github.com/Horizon-Truth/horizon-truth-client-v2).
-- `docs/backend`: Documentation for the [Horizon Truth API](https://github.com/Horizon-Truth/horizon-truth-api-v2).
+- `docs/client`: Documentation for the [Horizon Truth Client](https://github.com/Horizon-Truth/horizon-truth-client-v2).
+- `docs/api`: Documentation for the [Horizon Truth API](https://github.com/Horizon-Truth/horizon-truth-api-v2).
 - `blog`: Project updates and technical articles.
 
 ## Getting Started

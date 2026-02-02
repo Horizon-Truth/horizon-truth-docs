@@ -1,4 +1,4 @@
-# Frontend Intro
+# Client Intro
 
 **Horizon Truth Client (v2)** is the modern web interface for the Horizon Truth platform. It provides an intuitive and responsive experience for users to interact with claims, reviews, and platform data.
 

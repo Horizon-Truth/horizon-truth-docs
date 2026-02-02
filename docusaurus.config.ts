@@ -83,15 +83,15 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'frontendSidebar',
+          sidebarId: 'clientSidebar',
           position: 'left',
-          label: 'Frontend',
+          label: 'Client',
         },
         {
           type: 'docSidebar',
-          sidebarId: 'backendSidebar',
+          sidebarId: 'apiSidebar',
           position: 'left',
-          label: 'Backend',
+          label: 'API',
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
@@ -108,12 +108,12 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Frontend',
-              to: '/docs/frontend/intro',
+              label: 'Client',
+              to: '/docs/client/intro',
             },
             {
-              label: 'Backend',
-              to: '/docs/backend/intro',
+              label: 'API',
+              to: '/docs/api/intro',
             },
           ],
         },

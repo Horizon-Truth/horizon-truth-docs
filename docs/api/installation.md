@@ -1,4 +1,4 @@
-# Backend Installation
+# API Installation
 
 Follow these steps to set up the Horizon Truth API on your local machine.
 
