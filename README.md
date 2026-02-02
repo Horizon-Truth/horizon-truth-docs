@@ -1,41 +1,52 @@
-# Website
+# Horizon Truth Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repository contains the official documentation for the **Horizon Truth** project, covering both the Frontend and Backend components. The documentation site is built using [Docusaurus](https://docusaurus.io/).
 
-## Installation
+## Repository Structure
+
+- `docs/frontend`: Documentation for the [Horizon Truth Client](https://github.com/Horizon-Truth/horizon-truth-client-v2).
+- `docs/backend`: Documentation for the [Horizon Truth API](https://github.com/Horizon-Truth/horizon-truth-api-v2).
+- `blog`: Project updates and technical articles.
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
 
 ```bash
-yarn
+npm install
 ```
 
-## Local Development
+### Local Development
 
 ```bash
-yarn start
+npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-## Build
+### Build
 
 ```bash
-yarn build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command generates static content into the `build` directory, which can be served using any static content hosting service.
 
 ## Deployment
 
-Using SSH:
+The documentation is configured to be deployed via GitHub Pages or any static site provider.
 
 ```bash
-USE_SSH=true yarn deploy
+# To serve built files locally
+npm run serve
 ```
 
-Not using SSH:
+---
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+*Built with ❤️ for the Horizon Truth Project.*
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
