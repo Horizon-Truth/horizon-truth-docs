@@ -1,29 +1,20 @@
-# Backend Documentation - horizon-truth-api-v2
+# Backend Intro
 
-Welcome to the documentation for the **Horizon Truth Backend**.
+**Horizon Truth API** is the backend engine for the Horizon Truth platform. It is a high-performance, secure, and scalable API built with **NestJS**, **TypeORM**, and **PostgreSQL**.
 
-## Overview
-This project is a NestJS application providing a RESTful API for the Horizon Truth system.
+## Project Mission
+The backend aims to provide a reliable source of truth for public claims, leveraging community verification and automated engine analysis.
 
-## Getting Started
+## Key Features
+- **Stateless Authentication**: JWT-based security with Passport.js.
+- **Role-Based Access Control (RBAC)**: Fine-grained permissions for users, moderators, and admins.
+- **Claim Lifecycle Management**: From submission to verification and archiving.
+- **Engine Analytics**: Automated processing of claims.
+- **Gamification**: Incentivizing community participation.
 
-### Prerequisites
-- Node.js (v18+)
-- PostgreSQL
-- Redis (optional, for caching)
-
-### Installation
-```bash
-cd horizon-truth-api-v2
-npm install
-```
-
-### Running Locally
-```bash
-npm run start:dev
-```
-
-## API Modules
-- `src/auth`: Authentication and authorization logic.
-- `src/users`: User management.
-- `src/attendance`: Attendance tracking features.
+## Tech Stack
+- **Framework**: [NestJS v11](https://nestjs.com/)
+- **Language**: TypeScript v5.7
+- **Database**: PostgreSQL (Production), SQLite (Development)
+- **ORM**: [TypeORM](https://typeorm.io/)
+- **Validation**: Zod
