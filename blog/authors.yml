@@ -1,25 +1,11 @@
-yangshun:
-  name: Yangshun Tay
-  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
-  page: true
-  socials:
-    x: yangshunz
-    linkedin: yangshun
-    github: yangshun
-    newsletter: https://www.greatfrontend.com
+horizon:
+  name: Horizon-Truth
+  title: Project Organization
+  url: https://github.com/Horizon-Truth
+  image_url: https://github.com/Horizon-Truth.png
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
-  socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+dabbal:
+  name: Dabbal Software Development PLC
+  title: Primary Development Partner
+  url: https://debbal.com
+  image_url: https://debbal.com//public/upload/logo_1756638530.png
