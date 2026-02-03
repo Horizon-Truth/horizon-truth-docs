@@ -4,9 +4,9 @@ This repository contains the official documentation for the **Horizon Truth** pr
 
 ## Repository Structure
 
-- `docs/client`: Documentation for the [Horizon Truth Client](https://github.com/Horizon-Truth/horizon-truth-client-v2).
-- `docs/api`: Documentation for the [Horizon Truth API](https://github.com/Horizon-Truth/horizon-truth-api-v2).
-- `blog`: Project updates and technical articles.
+- `docs/client`: Documentation for the [Horizon Truth Client GitHub repository](https://github.com/Horizon-Truth/horizon-truth-client-v2) Live Demo [here](https://horizontruth.org/docs/client/architecture).
+- `docs/api`: Documentation for the [Horizon Truth API GitHub repository](https://github.com/Horizon-Truth/horizon-truth-api-v2) Live Demo [here](https://horizontruth.org/docs/api/installation).
+- `blog`: Project updates and technical articles. Live Demo [here](https://horizontruth.org/docs/blog).
 
 ## Getting Started
 
