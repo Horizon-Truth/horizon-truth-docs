@@ -1,37 +1,61 @@
 # API Installation
 
-Follow these steps to set up the Horizon Truth API on your local machine.
+Follow these steps to set up the Horizon Truth Backend (API) on your local machine.
 
 ## Prerequisites
-- **Node.js**: v18 or higher
-- **npm** or **yarn**
-- **PostgreSQL**: (Optional for local development, uses SQLite by default)
+
+- **Node.js**: v18 or higher (v20+ recommended)
+- **npm**
+- **PostgreSQL**: A running PostgreSQL instance
 
 ## Setup Steps
 
 ### 1. Installation
+
+Navigate to the backend directory and install dependencies:
 ```bash
-git clone https://github.com/Horizon-Truth/horizon-truth-api-v2
-cd horizon-truth-api-v2
+cd backend
 npm install
 ```
 
 ### 2. Environment Configuration
-Copy the development environment template:
-```bash
-cp .env.development .env
-```
-Open `.env` and configure your database settings if you're not using the default SQLite setup.
 
-### 3. Run the Application
-Start the development server with hot-reload:
+You must set up your environment variables. Create a `.env` file in the `backend` directory based on the expected environment variables for PostgreSQL connection, JWT secrets, etc.
+
+Example `.env`:
+```env
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=password
+DB_NAME=horizon_db
+JWT_SECRET=supersecret
+```
+
+### 3. Database Seeding
+
+The backend includes seeder scripts to populate your database with initial data (like admin accounts or default game scenarios).
+To run the seeder:
 ```bash
-npm run dev
+npm run seed
+```
+To seed an admin account:
+```bash
+npm run seed:admin
+```
+
+### 4. Run the Application
+
+Start the development server with hot-reload enabled:
+```bash
+npm run start:dev
 ```
 The API will be available at `http://localhost:3000`.
 
 ## Available Scripts
-- `npm run start:dev`: Start with watch mode.
+
+- `npm run start:dev`: Start development mode (watch).
 - `npm run build`: Build for production.
-- `npm run lint`: Run ESLint.
-- `npm run test`: Run unit tests.
+- `npm run format`: Format code with Prettier.
+- `npm run lint`: Run ESLint to fix code style issues.
+- `npm run test`: Run automated unit tests using Jest.

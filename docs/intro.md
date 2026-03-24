@@ -2,46 +2,40 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Horizon Truth Documentation
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the official documentation for **Horizon Truth**.
+
+This documentation covers both the **Frontend Client** and the **Backend API**.
+
+## Architecture Overview
+
+Horizon Truth is a modern, full-stack application built with:
+
+- **Frontend (Client)**: A robust React application using Vite, TailwindCSS, Zustand for state management, and React Query for data fetching.
+- **Backend (API)**: A high-performance NestJS application using TypeORM and PostgreSQL.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Choose a section to get started:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- **[Frontend Documentation](./client/intro)**: Learn about the React application structure, styling, and how to run it locally.
+- **[Backend Documentation](./api/intro)**: Explore the NestJS modules, database setup, and API structure.
 
-### What you'll need
+## Quick Start
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+To run the entire stack locally, you'll need two terminal windows:
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
+**Terminal 1 (Backend):**
 ```bash
-npm init docusaurus@latest my-website classic
+cd backend
+npm install
+npm run start:dev
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
+**Terminal 2 (Frontend):**
 ```bash
-cd my-website
-npm run start
+cd frontend
+npm install
+npm run dev
 ```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.

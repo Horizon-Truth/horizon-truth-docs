@@ -1,30 +1,33 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Custom CSS for Horizon Truth Documentation
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Horizon Truth Primary Brand Colors (Light Mode) 
+     Approx. oklch(0.7 0.15 210) -> Sky 600 (#0284c7) */
+  --ifm-color-primary: #0284c7;
+  --ifm-color-primary-dark: #0277b3;
+  --ifm-color-primary-darker: #0270a9;
+  --ifm-color-primary-darkest: #015c8b;
+  --ifm-color-primary-light: #0294de;
+  --ifm-color-primary-lighter: #029ce9;
+  --ifm-color-primary-lightest: #1cb0fc;
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Horizon Truth Primary Brand Colors (Dark Mode)
+   Approx Sky 500 (#0ea5e9) */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #0ea5e9;
+  --ifm-color-primary-dark: #0b95d4;
+  --ifm-color-primary-darker: #0a8cc8;
+  --ifm-color-primary-darkest: #0874a4;
+  --ifm-color-primary-light: #28b0eb;
+  --ifm-color-primary-lighter: #35b5ec;
+  --ifm-color-primary-lightest: #5dc5f0;
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }

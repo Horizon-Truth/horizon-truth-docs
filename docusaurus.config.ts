@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Horizon Truth Documentation',
   tagline: 'Complete guide for Horizon Truth Frontend and Backend',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,15 +15,13 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://horizontruth.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'Horizon-Truth', // Usually your GitHub org/user name.
+  projectName: 'horizon-truth', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -78,8 +76,8 @@ const config: Config = {
     navbar: {
       title: 'Horizon Truth',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Horizon Truth Logo',
+        src: 'img/logo.png',
       },
       items: [
         {
@@ -96,7 +94,7 @@ const config: Config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/Horizon-Truth',
           label: 'GitHub',
           position: 'right',
         },
@@ -119,23 +117,6 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
           title: 'More',
           items: [
             {
@@ -144,12 +125,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/Horizon-Truth/horizon-truth',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Horizon Truth, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Horizon Truth, Inc.`,
     },
     prism: {
       theme: prismThemes.github,
