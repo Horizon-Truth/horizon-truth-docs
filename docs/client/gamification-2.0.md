@@ -214,6 +214,37 @@ TypeORM `synchronize` on next backend boot.
 - The old inline "daily goal" line on the hub was replaced by the briefing
   card, which sits beside the skills panel.
 
+## Achievements & recurring cast (Phases 13 + 11 — first pass)
+
+Both live on `/dashboard/achievements` (`pages/AchievementsPage.tsx`, tabbed).
+
+**Achievements** (`achievements.ts`) — 35 achievements across five categories
+(journey, precision, mastery, community impact, habits). Every one is
+*derived*: `evaluateAll(ctx)` computes progress from tracked data only —
+player stats, skill book, calibration ledger, mastery tiers from
+`PlayerScenarioRecord`, lifetime impact totals, and the daily ledger. Nothing
+is minted or separately stored, so an achievement can never claim something
+the record doesn't support, and locked cards show honest partial progress
+(`current / target`). Server-awarded badges remain the authoritative awards;
+these complement them with fine-grained goals.
+
+Achievements that need a minimum sample (calibration, per-skill accuracy)
+report progress *toward the sample* first, so they can't be won on one lucky
+decision.
+
+**Recurring cast** (`characters.ts`) — six characters (journalist, teacher,
+photo editor, health researcher, community organizer, neighbour). Each cares
+about one skill (the neighbour about overall conduct), and `castState()`
+derives their disposition — wary / neutral / warm / devoted — from the
+player's **real accuracy in that area** (≥90 devoted, ≥70 warm, ≥50 neutral,
+below wary), with no opinion at all until `OPINION_THRESHOLD` decisions
+exist. Each disposition has its own line of dialogue, so relationships are a
+human-readable lens on the skill graph rather than hidden state. The card
+states plainly which statistic drives the relationship.
+
+`game.store` gained `lifetimeImpact` (career reached / prevented totals,
+accumulated once per completed mission) to back the impact achievements.
+
 ## Tests
 
 `skills.test.ts`, `mastery.test.ts`, `confidence.test.ts` cover the mapping,
