@@ -97,6 +97,123 @@ survives device changes and can feed admin analytics:
   the backend merge); every recorded decision pushes the updated ledgers
   fire-and-forget. Guests and offline players silently keep local state.
 
+## Adaptive recommendation (Phase 9 — implemented)
+
+`modules/gamification/recommendation.ts` picks the next best mission from
+data that already exists — no backend changes:
+
+- `scenarioSkill()` resolves a scenario's authored `psychologicalTrigger`
+  (falling back to `theme`) through `matchTechnique()` to the skill it trains.
+- `recommendScenario(scenarios, skillBook)` scores playable scenarios:
+  an in-progress mission always wins (resume); then +50 for training the
+  player's weakest skill, +25 for never-completed, a mastery-gap bonus
+  (bronze 20 → platinum 5), and +10 for difficulty matched to overall
+  accuracy (<70% → EASY, 70–85% → MEDIUM, ≥85% → HARD). Fully Legendary
+  scenarios are skipped; ties break by learning-path `order`.
+- `ScenarioList` shows the result as a "Recommended next" hero card with
+  human-readable reason chips and marks the scenario in the path. Guests have
+  no skill history, so their recommendation degrades gracefully to
+  new-ground/difficulty signals.
+
+## Campaign arcs (Phase 3 — implemented)
+
+`modules/gamification/campaigns.ts` turns scenarios sharing a `campaignTag`
+into visible story arcs — derived entirely client-side:
+
+- `campaignTitle()` humanizes the tag (`ELECTION_CAMPAIGN` → "Election
+  Campaign"); `groupByCampaign()` splits the ordered path into consecutive
+  runs so standalone missions keep flowing between arcs.
+- `campaignWorldState()` derives the arc's **world state** from the player's
+  campaign record: chapters completed, campaign accuracy, and a narrative
+  tone (`neutral` → "the story begins", `thriving` ≥85%, `contested` ≥70%,
+  `crisis` below) — the story-level consequence of how well the player has
+  contained misinformation so far.
+- `ScenarioList` renders an arc header (name, chapter progress bar, world
+  narrative) before each campaign's first mission and a "Chapter n of m" chip
+  on every campaign mission.
+
+Authoring note for admins: give scenarios the same `campaignTag` and
+ascending `order` (plus `unlockScenarioId` chains if chapters must be played
+in sequence) and the client renders the arc automatically.
+
+## Community impact (Phase 4 — implemented)
+
+`modules/gamification/impact.ts` turns the per-choice `spreadSimulation`
+data scenario authors already provide into mission-level consequences:
+
+- Choosing a spreading option adds its `reach`/`reshares`/`credibility_loss`
+  to the harm side of the ledger; a correct call credits **exposure
+  prevented** = the largest spread any other option on that scene would have
+  caused (an honest counterfactual, not an invented number).
+- The ledger (`missionImpact`) lives in `game.store`, keyed by `progressId`
+  so refreshes and resumes can't mix missions; it persists with the rest of
+  the game storage and resets on `startGame`.
+- `GameOutcome` shows a "Community impact" section — people reached by
+  misinformation you spread, reshares triggered, people shielded — plus a
+  tone-graded narrative verdict (`impactVerdict`: good / mixed / bad).
+- Scenes without authored spread data simply contribute nothing; the section
+  hides when the whole mission had no measurable spread either way.
+
+## Interactive challenge types (Phase 10 — first pass)
+
+Two new `SceneContentType` values (backend enum extended; `PROPAGATION` was
+also added there to match the client). Both render investigation UIs while
+the scene's normal choices stay in `GameSession`, so scoring/outcomes work
+unchanged. Both feed the telemetry `verification` block (`fact_panel_views`,
+`source_button_clicked_count`, `profile_checked`).
+
+**`URL_INSPECTION`** (`play/UrlInspection.tsx`) — a suspicious link in a fake
+browser window. Clicking the address bar reveals the domain's anatomy
+(protocol / subdomain / registered domain / path with explanations); an
+"investigator toolkit" lists expandable clues. `scene.content`:
+
+```json
+{
+  "url": "https://bbc-news24.co/breaking",
+  "pageTitle": "BREAKING: ...",
+  "pageSnippet": "...",
+  "prompt": "Is this link what it claims to be?",
+  "clues": [{ "label": "Domain registered 12 days ago", "detail": "...", "suspicious": true }]
+}
+```
+
+**`SOURCE_COMPARISON`** (`play/SourceComparison.tsx`) — the same story from
+several sources side by side, each with an "Examine this source" credibility
+check. `scene.content`:
+
+```json
+{
+  "prompt": "Who should you trust on this story?",
+  "sources": [{
+    "name": "National Desk", "handle": "@national_desk", "verified": true,
+    "timestamp": "2h", "headline": "...", "excerpt": "...",
+    "signals": [{ "label": "Named reporters", "detail": "...", "suspicious": false }]
+  }]
+}
+```
+
+Admins author both in `SceneEditor` (new type buttons + a JSON payload field
+with placeholder templates). Note: the Postgres enum gains the new values via
+TypeORM `synchronize` on next backend boot.
+
+## Daily briefing (Phase 14 — first pass)
+
+`modules/gamification/daily.ts` + `components/DailyBriefing.tsx`:
+
+- **Mission of the day** — a date-seeded deterministic pick over the active
+  scenario list (`dailyScenario`), identical for every player with the same
+  content set; locked scenarios are skipped by walking forward from the
+  seeded index.
+- **Daily quests** — three fixed quests (complete a mission, 5 correct
+  decisions, finish with ≥80% accuracy) evaluated against a per-day ledger
+  (`dailyLedger` in `game.store`, persisted) that rolls over at *local*
+  midnight via `ensureToday`. Counters advance inside `submitChoice`.
+- No client-side rewards are granted — quests are goal-framing that feeds the
+  existing server-computed streak; an "all quests cleared" state points the
+  player at tomorrow.
+- The old inline "daily goal" line on the hub was replaced by the briefing
+  card, which sits beside the skills panel.
+
 ## Tests
 
 `skills.test.ts`, `mastery.test.ts`, `confidence.test.ts` cover the mapping,
